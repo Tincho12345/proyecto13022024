@@ -33,6 +33,7 @@ const NuevoCliente = ({navigation, route}) => {
   }, [route.params]);
 
   const guardarCliente = async () => {
+    let accion = '';
     // Validar el Objeto
     if (nombre === '' || telefono === '' || correo === '' || empresa === '') {
       setAlerta(true);
@@ -53,27 +54,27 @@ const NuevoCliente = ({navigation, route}) => {
         cliente.id = id;
         URL += `/${id}`;
         await axios.put(`${URL}`, cliente);
-        setNombre(`Se Modificó correctamente los datos de: ${nombre}`);
-        setExito(true);
+        accion = 'Modificó';
       } else {
         await axios.post(`${URL}`, cliente);
-        setNombre(`Se Agregó correctamente al Cliente: ${nombre}`);
-        setExito(true);
+        accion = 'Agregó';
       }
+      setExito(true);
+      setNombre(`Se ${accion} correctamente el Cliente: ${nombre}`);
     } catch (error) {
       console.log(error);
     }
   };
 
   const guardadoExitosos = () => {
-    //Redireccionar
-    navigation.navigate('Inicio');
     //Limpiar Form
     setNombre('');
     setTelefono('');
     setCorreo('');
     setEmpresa('');
     setExito(false);
+    //Redireccionar
+    navigation.navigate('Inicio');
   };
 
   return (

@@ -1,6 +1,22 @@
 {
   "clientes": [
     {
+      "nombre": "Carlos Martín",
+      "telefono": "1234",
+      "correo": "correo",
+      "empresa": "xxx",
+      "id": "4e96"
+    },
+    {
+      "nombre": "Jualiana Salomé",
+      "telefono": "456789",
+      "correo": "FUMAN@CORREO",
+      "empresa": "MI INFO",
+      "id": "3f86"
+    }
+  ],
+  "Remitos": [
+    {
       "nombre": "CarlosSSSSSSSSSSS",
       "telefono": "1234",
       "correo": "correo",
